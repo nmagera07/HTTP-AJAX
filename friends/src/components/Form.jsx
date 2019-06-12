@@ -20,7 +20,7 @@ class Form extends React.Component {
     }
 
     addFriend = e => {
-        this.props.addFriend(this.state.friend)
+        this.props.addFriend(this.state.friends)
         this.setState({
             friend: ""
         })

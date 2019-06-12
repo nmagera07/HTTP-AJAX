@@ -9,9 +9,9 @@ class App extends React.Component {
     super(props);
     this.state = { 
       items: [],
-      name: "",
-      age: "",
-      email:""
+      // name: "",
+      // age: "",
+      // email:""
      }
   }
 
@@ -39,19 +39,17 @@ class App extends React.Component {
   //   })
   // }
 
-  addFriend() {
-    axios.post('http://localhost:5000/friends', {
-      name: '',
-      age: '',
-      email: ''
-    })
+  addFriend = () => {
+    axios
+    .post('http://localhost:5000/friends')
     .then((res) => {
       console.log(res)
     this.setState({ 
-      items: res.data,
-      name: res.data,
-      age: res.data,
-      email: res.data
+      // items: res.data,
+      name: res.data.name,
+      age: res.data.age,
+      email: res.data.email
+    
      })
     })
     .catch((err) => {
