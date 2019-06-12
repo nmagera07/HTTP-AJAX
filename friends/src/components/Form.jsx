@@ -4,20 +4,22 @@ class Form extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            item: "friend"
+            friends: {
+                name: "",
+                age: "",
+                email: ""
+            }
+            
          }
     }
 
     handleChanges = e => {
         this.setState({
-            [e.target.name]: e.target.value,
-            [e.target.age]: e.target.value,
-            [e.target.email]: e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
     addFriend = e => {
-        e.preventDefault()
         this.props.addFriend(this.state.friend)
         this.setState({
             friend: ""
@@ -30,20 +32,23 @@ class Form extends React.Component {
                 <form>
                     <h2>Enter a new friend!</h2>
                     <input 
-                        value={this.state.friend}
-                        name="Friend"
+                        type="text"
+                        value={this.state.name}
+                        name="friend"
                         onChange={this.handleChanges}
                         placeholder="Name"
                     />
                     <input 
-                        value={this.state.friend}
-                        name="Age"
+                        type="text"
+                        value={this.state.age}
+                        name="age"
                         onChange={this.handleChanges}
                         placeholder="Age"
                     />
                     <input 
-                        value={this.state.friend}
-                        name="Email"
+                        type="text"
+                        value={this.state.email}
+                        name="email"
                         onChange={this.handleChanges}
                         placeholder="Email"
                     />

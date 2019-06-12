@@ -8,7 +8,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
+      items: [],
+      name: "",
+      age: "",
+      email:""
      }
   }
 
@@ -23,16 +26,36 @@ class App extends React.Component {
       })
   }
 
-  addFriend = (itemName, itemAge, itemEmail) => {
-    const newFriend = {
-      name: itemName,
-      age: itemAge,
-      email: itemEmail
-    }
-    this.setState(prevState => {
-      return {
-        items: [...prevState.items, newFriend]
-      }
+  // addFriend = (itemName, itemAge, itemEmail) => {
+  //   const newFriend = {
+  //     name: itemName,
+  //     age: itemAge,
+  //     email: itemEmail
+  //   }
+  //   this.setState(prevState => {
+  //     return {
+  //       items: [...prevState.items, newFriend]
+  //     }
+  //   })
+  // }
+
+  addFriend() {
+    axios.post('http://localhost:5000/friends', {
+      name: '',
+      age: '',
+      email: ''
+    })
+    .then((res) => {
+      console.log(res)
+    this.setState({ 
+      items: res.data,
+      name: res.data,
+      age: res.data,
+      email: res.data
+     })
+    })
+    .catch((err) => {
+      console.log(err)
     })
   }
 
