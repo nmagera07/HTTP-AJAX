@@ -1,58 +1,29 @@
 import React from 'react';
-
-
-class Form extends React.Component {
+import {Link} from 'react-router-dom'
+class UpdateForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            friends: {
-                name: "",
-                age: "",
-                email: ""
-            }
-            
+            friend: this.props.activeFriend
          }
     }
 
-    handleChanges = e => {
+     handleChanges = e => {
         this.setState({
-            friends: {
-                ...this.state.friends,
-                [e.target.name]: e.target.value
-            }
-            
-        })
-    }
-
-    addFriend = e => {
-        e.preventDefault()
-        this.props.addFriend(this.state.friends)
-        this.setState({
-            friends: {
-                name: '',
-                age: '',
-                email: ''
-            }
+          [e.target.name]: e.target.value     
         })
     }
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.addFriend(this.state.friends)
-        this.setState({
-            friends: {
-                name: '',
-                age: '',
-                email: ''
-            }
-        })
+        this.props.updateFriend(this.state.friend)
     }
 
     render() { 
         return ( 
             <div className="form-style">
                 <form onSubmit={this.handleSubmit}>
-                    <h2>Enter a new friend!</h2>
+                    <h2>Edit your friend =(</h2>
                     <input 
                         type="text"
                         value={this.state.name}
@@ -74,7 +45,7 @@ class Form extends React.Component {
                         onChange={this.handleChanges}
                         placeholder="Email"
                     />
-                    <button onClick={this.addFriend}>Add Friend</button>
+                    <button onClick={this.handleSubmit}>Edit Friend</button>
                 </form>
                 
             </div>
@@ -82,4 +53,4 @@ class Form extends React.Component {
     }
 }
  
-export default Form;
+export default UpdateForm;

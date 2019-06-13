@@ -2,6 +2,7 @@
   display: flex;
   border: 1px solid rgba(199, 235, 232, 0.582);
   background-color: rgba(167, 182, 181, 0.582);
+  /* box-shadow: 2px 2px; */
   border-radius: 5px;
   margin: 25px;
 }
@@ -35,6 +36,7 @@ body {
 
 form {
   background-color: rgba(167, 182, 181, 0.582);
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   height: 300px;

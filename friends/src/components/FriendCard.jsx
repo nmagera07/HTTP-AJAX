@@ -7,6 +7,8 @@ const FriendCard = (props) => {
                 <p>Name: {props.itemProps.name}</p>
                 <p>Age: {props.itemProps.age}</p>
                 <p>Email: {props.itemProps.email}</p>
+                
+                
             </div>
         </div>
      );
