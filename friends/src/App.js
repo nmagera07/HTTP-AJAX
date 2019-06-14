@@ -4,15 +4,16 @@ import Form from './components/Form'
 import UpdateForm from './components/UpdateForm'
 import Nav from './components/Nav'
 import axios from 'axios'
-import { BrowserRouter as Router, Route,  Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route,  Link , Redirect} from 'react-router-dom'
 import './App.css';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
       items: [],
-      activeFriend: null
+      activeFriend: []
      }
   }
 
@@ -56,15 +57,14 @@ class App extends React.Component {
       })
   }
 
-  setUpdateForm =(e, item) => {
-    e.preventDefault()
-    this.setState({ activeFriend: item })
+  setUpdateForm =(friend) => {
+    this.setState({ activeFriend: friend })
 
   }
 
-  updateFriend = friends => {
+  updateFriend = (updatedFriend) => {
     axios
-      .put(`http://localhost:5000/friends/${friends.id}`, friends)
+      .put(`http://localhost:5000/friends/${updatedFriend.id}`, updatedFriend)
       .then((res) => {
         console.log(res)
         this.setState({
@@ -75,6 +75,8 @@ class App extends React.Component {
         console.log(err)
       })
   }
+
+  
 
   render() { 
     return ( 
@@ -88,6 +90,7 @@ class App extends React.Component {
               items={this.state.items}
               deleteFriend={this.deleteFriend}
               setUpdateForm={this.setUpdateForm}
+              
             />
           )}
           />

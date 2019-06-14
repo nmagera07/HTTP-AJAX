@@ -1,5 +1,5 @@
 import React from 'react';
-
+import {Redirect} from 'react-router-dom'
 
 class Form extends React.Component {
     constructor(props) {
@@ -9,7 +9,8 @@ class Form extends React.Component {
                 name: "",
                 age: "",
                 email: ""
-            }
+            },
+            redirect: false
             
          }
     }
@@ -32,23 +33,18 @@ class Form extends React.Component {
                 name: '',
                 age: '',
                 email: ''
-            }
+            },
+            redirect: true
         })
     }
 
-    handleSubmit = e => {
-        e.preventDefault()
-        this.props.addFriend(this.state.friends)
-        this.setState({
-            friends: {
-                name: '',
-                age: '',
-                email: ''
-            }
-        })
-    }
+      
+
 
     render() { 
+        if (this.state.redirect) {
+            return <Redirect push to="/friend-list" />
+        }
         return ( 
             <div className="form-style">
                 <form onSubmit={this.handleSubmit}>
@@ -59,6 +55,7 @@ class Form extends React.Component {
                         name="name"
                         onChange={this.handleChanges}
                         placeholder="Name"
+                        required
                     />
                     <input 
                         type="text"

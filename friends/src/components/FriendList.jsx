@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import FriendCard from './FriendCard'
+import {Redirect, Link} from 'react-router-dom'
 
 const FriendList = (props) => {
+    // const [redirect, setRedirect] = useState(false)
     return ( 
          <div>
             {props.items.map(item => (
@@ -11,7 +13,7 @@ const FriendList = (props) => {
                         itemProps={item} 
                     />
                     <div>
-                        <button onClick={e => props.setUpdateForm(e, item)}>Edit</button>
+                        <Link to="/update-form"><button onClick={() => props.setUpdateForm(item)}>Edit</button></Link>
                         <button onClick={e => props.deleteFriend(e, item)}>Delete</button> 
                     </div>
                 </div>
