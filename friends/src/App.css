@@ -1,0 +1,72 @@
+.friendCard {
+  display: flex;
+  border: 1px solid rgba(199, 235, 232, 0.582);
+  background-color: rgba(167, 182, 181, 0.582);
+  /* box-shadow: 2px 2px; */
+  border-radius: 5px;
+  margin: 25px;
+}
+
+.friendCard2 {
+  display: flex;
+  width: 500px;
+}
+
+.friendCard2 p {
+  margin: 15px;
+  color: rgba(14, 14, 97, 0.712);
+}
+
+nav {
+  background-color: rgba(112, 165, 112, 0.726);
+  height: 60px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+nav h1 {
+  text-align: center;
+  padding-top: 10px;
+  color: rgba(76, 76, 119, 0.712);
+}
+
+body {
+  margin: 0;
+}
+
+form {
+  background-color: rgba(167, 182, 181, 0.582);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+}
+
+form h2 {
+  text-align: center;
+  color: rgba(76, 76, 119, 0.712);
+}
+
+form button {
+  width: 50%;
+  position: relative;
+  left: 125px;
+  background-color: rgba(112, 165, 112, 0.726);
+  color: white;
+  font-size: 14px;
+}
+
+input {
+  margin: 15px;
+  height: 25px;
+}
+
+.form-style {
+  width: 25%;
+  margin-top: 22px;
+}
+
+.body-style {
+  display: flex;
+  justify-content: space-evenly;
+}
